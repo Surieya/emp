@@ -35,7 +35,9 @@ function displayData(data) {
 
 async function getAllEmployee() {
     try {
-        const result = await axios.get(URL + "/api/user",);
+        const result = await axios.get(URL + "/api/user", {}, {
+            withCredentials: true,
+        });
         console.log(result.data);
         // return result.data;
         displayData(result.data.data);
@@ -51,6 +53,8 @@ async function postEmployee({ firstName, lastName, age, DOB }) {
             lastName,
             age,
             dateOfBirth:DOB
+        }, {
+            withCredentials: true
         });
         getAllEmployee();
         console.log(result);

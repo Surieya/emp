@@ -11,7 +11,7 @@ run();
 app.use(express.json());
 // app.use(cors());
 app.use(cors({
-  origin: ['http://127.0.0.1:5500', 'http://localhost:5500','https://emp-frontend-xi.vercel.app/'],
+  origin: ['http://127.0.0.1:5500', 'http://localhost:5500','https://emp-frontend-xi.vercel.app'],
 }));
 
 app.route('/api/user').get(getAllUsers).post(createUser);
