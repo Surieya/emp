@@ -2,12 +2,12 @@ import dotenv from 'dotenv';
 import express from "express"
 import cors from "cors";
 import { errorHandler } from './utils/errorHandler.js';
-import { createUser,updateUser,getAllUsers,getSingleUser } from './database.js';
+import { createUser,updateUser,getAllUsers,getSingleUser,run} from './database.js';
 const app = express();
 dotenv.config();
 const port = 8080;
 
-
+run();
 app.use(express.json());
 // app.use(cors());
 app.use(cors({

@@ -10,7 +10,8 @@ const DOBInput = document.getElementById('DOB');
 const form = document.getElementById('form');
 const list = document.querySelector('.emp-list'); 
 
-const URL = "http://localhost:8080"
+// const URL = "http://localhost:8080"
+const URL = "https://emp-backend-5n76.onrender.com";
 
 
 

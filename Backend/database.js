@@ -10,6 +10,41 @@ const pool = mysql.createPool({
     database: process.env.DATABASE
 }).promise();
 
+
+// pool.getConnection((err, connection) => {
+//   if (err) {
+//     console.error('Error getting connection from pool:', err);
+//     return;
+//   }
+
+//   console.log('Connected to MySQL server');
+
+//   // Your queries or other database operations go here
+
+//   // Release the connection back to the pool when done
+//   connection.release();
+// });
+
+export async function run() {
+    let connection;
+
+    try {
+        connection = await pool.getConnection();
+
+        console.log('Connected to MySQL server');
+
+        // Your queries or other database operations go here
+
+    } catch (err) {
+        console.error('Error getting connection from pool:', err);
+    } finally {
+        if (connection) {
+            // Release the connection back to the pool when done
+            connection.release();
+        }
+    }
+}
+
 function asyncHandler(fn) {
     return async (req,res,next) => {
         try {
